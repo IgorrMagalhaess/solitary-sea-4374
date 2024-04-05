@@ -1,0 +1,31 @@
+<h1><%= @nation %></h1>
+
+<h3>Member count: <%= @members.count %> </h3>
+
+<ul>
+   <% @members.each_with_index do |member, index| %>
+      <div id="member-details-<%= index+1 %>">
+         <img src="<%= member.photo %>" alt="<%= member.name %>">
+         <li>Name: <%= member.name %></li>
+         <li>Allies:
+            <ul> 
+               <% member.allies.each do |ally| %>
+                  <div id="member-allies">
+                     <li><%= ally %></li>
+                  </div>
+               <% end %>
+            </ul>
+         </li>
+         <li>Enemies:
+            <ul> 
+               <% member.enemies.each do |enemy| %>
+                  <div id="member-enemies">
+                     <li><%= enemy %></li>
+                  </div>
+               <% end %>
+            </ul>
+         </li>
+      <li>Affiliation: <%= member.affiliation %></li>
+      </div>
+   <% end %>
+</ul>
